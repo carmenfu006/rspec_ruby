@@ -51,4 +51,54 @@ RSpec.describe 'the test challenge' do
     t = rock_paper_scissors('Scissors', 'Rock')
     expect(t).to_not eq "Player 1 wins!"
   end
+
+  specify 'price_after_discount' do
+    t = price_after_discount(500, 15)
+    expect(t).to eq 425
+  end
+
+  specify 'check_for_eligible_of_free_shipping' do
+    t = check_for_eligible_of_free_shipping({ 'Rice Cooker': 39.99, 'Hair Dryer': 11.99 })
+    expect(t).to eq false
+  end
+
+  specify 'get_the_longest_word' do
+    t = get_the_longest_word('Welcome to Rambutan Academy.')
+    expect(t).to eq 'Rambutan'
+  end
+
+  specify 'has_sunday_with_date_7' do
+    t = has_sunday_with_date_7(3, 2021)
+    expect(t).to eq true
+  end
+
+  specify 'filter_out_integers' do
+    t = filter_out_integers ['R', 0, 'Ruby', 2021, 'Rails', "2021"]
+    expect(t).to eq ["R", "Ruby", "Rails", "2021"]
+  end
+
+  specify 'the_next_alphabet' do
+    t = the_next_alphabet('Rambutan')
+    expect(t).to eq 'Sbncvubo'
+  end
+
+  specify 'calculate_alphabet' do
+    t = calculate_alphabet('XZZYYXZYZX')
+    expect(t).to eq [3, 3, 4]
+  end
+
+  specify 'capitalize_letter_of_each_word' do
+    t = capitalize_letter_of_each_word('Hello, how are you?')
+    expect(t).to eq "Hello, How Are You?"
+  end
+
+  specify 'reverse_even_words' do
+    t = reverse_even_words('Hello, how are you?')
+    expect(t).to eq ",olleH how are ?uoy"
+  end
+
+  specify 'sorting_an_array' do
+    t = sorting_an_array([7, 8, 11, 66], 'dsc')
+    expect(t).to eq [66, 11, 8, 7]
+  end
 end
