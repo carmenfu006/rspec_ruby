@@ -36,4 +36,19 @@ RSpec.describe 'the test challenge' do
     t = filter_repeated_character_strings ['abc', 'bbc', 'bbb', 'xyz', 'v']
     expect(t).to eq ['bbb', 'v']
   end
+
+  specify 'rock_paper_scissors' do
+    t = rock_paper_scissors('Rock', 'Rock')
+    expect(t).to eq "It's a draw!"
+  end
+
+  specify 'rock_paper_scissors' do
+    t = rock_paper_scissors('Paper', 'Rock')
+    expect(t).to_not eq "Player 2 wins!"
+  end
+
+  specify 'rock_paper_scissors' do
+    t = rock_paper_scissors('Scissors', 'Rock')
+    expect(t).to_not eq "Player 1 wins!"
+  end
 end

@@ -33,3 +33,10 @@ end
 def filter_repeated_character_strings(arr)
   arr.select { |i| i.chars.uniq.length == 1 }
 end
+
+# Rock Paper Scissors
+def rock_paper_scissors(player_1, player_2)
+	return "It's a draw!" if player_1 == player_2
+	return 'Player 1 wins!' if (player_1 == 'Rock' && player_2 == 'Scissors') || (player_1 == 'Scissors' && player_2 == 'Paper') || (player_1 == 'Paper' && player_2 == 'Rock')
+	return 'Player 2 wins!'
+end
