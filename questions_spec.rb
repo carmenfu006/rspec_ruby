@@ -9,7 +9,9 @@ RSpec.describe 'the test challenge' do
 
   specify 'compare_number_after_swap' do
     t = compare_number_after_swap 76
+    u = compare_number_after_swap 47
     expect(t).to eq true
+    expect(u).to eq false
   end
 
   specify 'get_index_of_the_first_vowel' do
@@ -18,8 +20,33 @@ RSpec.describe 'the test challenge' do
   end
 
   specify 'sum_of_two_largest_numbers' do
-    t = sum_of_two_largest_numbers [1, 4, 5, 8, 9]
+    t = sum_of_two_largest_numbers [1, 8, 5, 4, 9]
     expect(t).to eq 17
+  end
+
+  specify 'sum_of_two_smallest_numbers' do
+    t = sum_of_two_smallest_numbers [9, 4, 8, 5, 1]
+    expect(t).to eq 5
+  end
+
+  specify 'sum_of_positive' do
+    t = sum_of_positive [9, -4, -8, 5, 1]
+    expect(t).to eq 15
+  end
+
+  specify 'sum_of_negative' do
+    t = sum_of_negative [9, -4, -8, 5, 1]
+    expect(t).to eq -12
+  end
+
+  specify 'sum_positive_count_negative' do
+    t = sum_positive_count_negative [9, -4, -8, 5, 1]
+    expect(t).to eq [15, 2]
+  end
+
+  specify 'count_positive_sum_negative' do
+    t = count_positive_sum_negative [9, -4, -8, 5, 1]
+    expect(t).to eq [3, -12]
   end
 
   specify 'get_file_extension' do
@@ -63,6 +90,11 @@ RSpec.describe 'the test challenge' do
   specify 'get_the_longest_word' do
     t = get_the_longest_word('Welcome to Rambutan Academy.')
     expect(t).to eq 'Rambutan'
+  end
+
+  specify 'get_the_shortest_word' do
+    t = get_the_shortest_word('Welcome to Rambutan Academy.')
+    expect(t).to eq 'to'
   end
 
   specify 'has_sunday_with_date_7' do
@@ -112,5 +144,52 @@ RSpec.describe 'the test challenge' do
   specify 'index_of_small_letter' do
     t = index_of_small_letter('raMbuTAn')
     expect(t).to eq [0, 1, 3, 4, 7]
+  end
+
+  specify 'word_spelling' do
+    t = word_spelling('hello')
+    expect(t).to eq ['h', 'he', 'hel', 'hell', 'hello']
+  end
+
+  specify 'sum_up_numbers' do
+    t = sum_up_numbers [true, false, "123", "hello"]
+    u = sum_up_numbers [1, 2, 3, true]
+    expect(t).to eq 0
+    expect(u).to eq 6
+  end
+
+  specify 'operation_of' do
+    t = operation_of(3, 4, 'add')
+    u = operation_of(3, 4, 'subtract')
+    v = operation_of(3, 4, 'multiply')
+    w = operation_of(3, 4, 'divide')
+    x = operation_of(3, 0, 'divide')
+    expect(t).to eq 7
+    expect(u).to eq -1
+    expect(v).to eq 12
+    expect(w).to eq 0
+    expect(x).to eq 'undefined'
+  end
+
+  specify 'hashtag' do
+    t = hashtag('hello world')
+    u = hashtag('')
+    v = hashtag('greetings from rambutan academy sabah')
+    expect(t).to eq '#HelloWorld'
+    expect(u).to eq false
+    expect(v).to eq false
+  end
+
+  specify 'date_reformatting' do
+    t = date_reformatting('December 12, 2021')
+    u = date_reformatting('Dec 12, 2021')
+    v = date_reformatting('12/12/2021')
+    w = date_reformatting('12-12-2021')
+    x = date_reformatting('12.12.2021')
+    expect(t).to eq [12, 12, 2021]
+    expect(u).to eq [12, 12, 2021]
+    expect(v).to eq [12, 12, 2021]
+    expect(w).to eq [12, 12, 2021]
+    expect(x).to eq [12, 12, 2021]
   end
 end

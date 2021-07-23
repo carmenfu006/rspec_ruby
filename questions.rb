@@ -19,8 +19,34 @@ end
 
 # Return sum of two largest numbers
 def sum_of_two_largest_numbers(arr)
-  nums = arr.select { |n| n > 0 }.reverse
+  nums = arr.sort.select { |n| n > 0 }.reverse
   nums[0] + nums[1]
+end
+
+# Return sum of two smallest numbers
+def sum_of_two_smallest_numbers(arr)
+  nums = arr.sort.select { |n| n > 0 }
+  nums[0] + nums[1]
+end
+
+# Return sum of positive number
+def sum_of_positive(arr)
+  arr.empty? ? [] : arr.select(&:positive?).inject(:+)
+end
+
+# Return sum of negative number
+def sum_of_negative(arr)
+  arr.empty? ? [] : arr.select(&:negative?).inject(:+)
+end
+
+# Sum positive number, count negative number
+def sum_positive_count_negative(arr)
+  arr.empty? ? [] : [arr.select(&:positive?).inject(:+), arr.count(&:negative?)]
+end
+
+# Count positive number, sum negative number
+def count_positive_sum_negative(arr)
+  arr.empty? ? [] : [arr.count(&:positive?), arr.select(&:negative?).inject(:+)]
 end
 
 # Return file extention from files
@@ -61,6 +87,11 @@ end
 # Return the first found longest word
 def get_the_longest_word(str)
   str.split.max_by(&:length)
+end
+
+# Return the first found shortest word
+def get_the_shortest_word(str)
+  str.split.min_by(&:length)
 end
 
 # Check if a month in a particular year contains a Sunday 7th
@@ -107,4 +138,46 @@ end
 # Return an array of index of small letter
 def index_of_small_letter(word)
   (0..word.length).select{|i| word[i] =~ /[a-z]/}
+end
+
+# Word Spelling
+def word_spelling(word)
+  (0..(word.size - 1)).map { |w| word[0..w]}
+end
+
+# Sum up only numbers in an array
+def sum_up_numbers(arr)
+	arr.select { |x| x.is_a? Integer }.inject(0, :+)
+end
+
+# Perform operation of 4 types, if divided by 0 then is undefined
+def operation_of(a, b, op)
+  a, b = a.to_i, b.to_i
+  case op
+    when 'add'
+      (a + b)
+    when 'subtract'
+      (a - b)
+    when 'multiply'
+      (a * b)
+    when 'divide'
+      b == 0 ? 'undefined' : (a / b)
+  end
+end
+
+# Stage Three
+
+# Hashtag generator
+# Start with a hashtag
+# Capitalized first letter for each word
+# Return false if empty string or more than 30 characters
+def hashtag(str)
+  hashtag = '#' + str.split.map(&:capitalize).join
+	hashtag == '#' || hashtag.size > 30 ? false : hashtag
+end
+
+# Reformat date to be [MM, DD, YYYY]
+def date_reformatting(date)
+  d = Date.parse(date.gsub(/^(\d+)(.)(\d+)/, '\3\2\1'))
+  [d.month, d.day, d.year]
 end
