@@ -29,7 +29,11 @@ RSpec.describe 'the test challenge' do
 
   specify 'validation_of_zip_code' do
     t = validation_of_zip_code '6s898'
+    u = validation_of_zip_code '88400'
+    v = validation_of_zip_code '89 11'
     expect(t).to eq false
+    expect(u).to eq true
+    expect(v).to eq false
   end
 
   specify 'filter_repeated_character_strings' do
@@ -39,17 +43,11 @@ RSpec.describe 'the test challenge' do
 
   specify 'rock_paper_scissors' do
     t = rock_paper_scissors('Rock', 'Rock')
+    u = rock_paper_scissors('Paper', 'Rock')
+    v = rock_paper_scissors('Scissors', 'Rock')
     expect(t).to eq "It's a draw!"
-  end
-
-  specify 'rock_paper_scissors' do
-    t = rock_paper_scissors('Paper', 'Rock')
-    expect(t).to_not eq "Player 2 wins!"
-  end
-
-  specify 'rock_paper_scissors' do
-    t = rock_paper_scissors('Scissors', 'Rock')
-    expect(t).to_not eq "Player 1 wins!"
+    expect(u).to_not eq "Player 2 wins!"
+    expect(v).to_not eq "Player 1 wins!"
   end
 
   specify 'price_after_discount' do
@@ -77,6 +75,11 @@ RSpec.describe 'the test challenge' do
     expect(t).to eq ["R", "Ruby", "Rails", "2021"]
   end
 
+  specify 'filter_out_strings' do
+    t = filter_out_strings ['R', 0, 'Ruby', 2021, 'Rails', "2021"]
+    expect(t).to eq [0, 2021]
+  end
+
   specify 'the_next_alphabet' do
     t = the_next_alphabet('Rambutan')
     expect(t).to eq 'Sbncvubo'
@@ -98,7 +101,16 @@ RSpec.describe 'the test challenge' do
   end
 
   specify 'sorting_an_array' do
-    t = sorting_an_array([7, 8, 11, 66], 'dsc')
+    t = sorting_an_array([8, 66, 11, 7], 'dsc')
+    u = sorting_an_array([8, 66, 11, 7], 'asc')
+    v = sorting_an_array([8, 66, 11, 7], 'none')
     expect(t).to eq [66, 11, 8, 7]
+    expect(u).to eq [7, 8, 11, 66]
+    expect(v).to eq [8, 66, 11, 7]
+  end
+
+  specify 'index_of_small_letter' do
+    t = index_of_small_letter('raMbuTAn')
+    expect(t).to eq [0, 1, 3, 4, 7]
   end
 end

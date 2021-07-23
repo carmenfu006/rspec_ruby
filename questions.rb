@@ -73,6 +73,11 @@ def filter_out_integers(arr)
   arr.grep(String)
 end
 
+# Filter array with strings and integers, return integers only
+def filter_out_strings(arr)
+  arr.grep(Integer)
+end
+
 # Get the next alphabet of every letter
 def the_next_alphabet(word)
   word.chars.map(&:next).join
@@ -83,7 +88,7 @@ def calculate_alphabet(str)
   ('X'..'Z').map { |n| str.count(n) }
 end
 
-# Capitalize each word's first letter
+# Capitalize first letter of each word
 def capitalize_letter_of_each_word(str)
   str.gsub(/(^|\s)./, &:upcase)
 end
@@ -97,4 +102,9 @@ end
 def sorting_an_array(arr, order)
   return arr if order == 'none'
 	order == 'asc' ? arr.sort : arr.sort.reverse
+end
+
+# Return an array of index of small letter
+def index_of_small_letter(word)
+  (0..word.length).select{|i| word[i] =~ /[a-z]/}
 end
