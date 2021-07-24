@@ -2,6 +2,68 @@ require 'rspec'
 require_relative './questions'
 
 RSpec.describe 'the test challenge' do
+
+  specify 'next_number' do
+    t = next_number(2)
+    expect(t).to eq 3
+  end
+
+  specify 'minutes_into_seconds' do
+    t = minutes_into_seconds(5)
+    expect(t).to eq 300
+  end
+
+  specify 'string_to_binary' do
+    t = string_to_binary('Rambutan')
+    expect(t).to eq '10001101'
+  end
+
+  specify 'get_first_element' do
+    t = get_first_element ['hello', 'how', 'are', 'you']
+    expect(t).to eq 'hello'
+  end
+
+  specify 'string_to_integer' do
+    t = string_to_integer('hello')
+    u = string_to_integer('678')
+    expect(t).to eq 0
+    expect(u).to eq 678
+  end
+
+  specify 'positive_number' do
+    t = positive_number(7)
+    u = positive_number(-7)
+    expect(t).to eq true
+    expect(u).to eq false
+  end
+
+  specify 'reverse' do
+    t = reverse('You have completed the challenge.')
+    expect(t).to eq '.egnellahc eht detelpmoc evah uoY'
+  end
+
+  specify 'more_than_100' do
+    t = more_than_100(60, 12)
+    u = more_than_100(29, 89)
+    expect(t).to eq false
+    expect(u).to eq true
+  end
+
+  specify 'unique_number' do
+    t = unique_number [9, 4, 1, 4, 9]
+    expect(t).to eq 1
+  end
+
+  specify 'get_length' do
+    t = get_length [9, [4, 1, [4, 0, 8]]]
+    expect(t).to eq 6
+  end
+
+  specify 'sum_numbers' do
+    t = sum_numbers([9, 4, 0, 8, 9], 2)
+    expect(t).to eq 13
+  end
+
   specify 'find_the_missing_numbers' do
     t = find_the_missing_numbers [1, 4, 5, 8, 9]
     expect(t).to eq [2, 3, 6, 7, 10]
@@ -14,8 +76,8 @@ RSpec.describe 'the test challenge' do
     expect(u).to eq false
   end
 
-  specify 'get_index_of_the_first_vowel' do
-    t = get_index_of_the_first_vowel 'Rambutan'
+  specify 'index_of_the_first_vowel' do
+    t = index_of_the_first_vowel 'Rambutan'
     expect(t).to eq 1
   end
 

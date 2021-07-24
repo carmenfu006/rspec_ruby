@@ -1,6 +1,62 @@
 require 'date'
 
-# Stage One
+# Return the next number of the given integer
+def next_number(num)
+  return num + 1
+end
+
+# Minutes into seconds
+def minutes_into_seconds(minutes)
+  return minutes * 60
+end
+
+# Return first element in an array
+def get_first_element(arr)
+  return arr[0]
+end
+
+# Return integer from string
+# Return 0 if it is invalid
+def string_to_integer(str)
+  return str.to_i rescue 0
+end
+
+# Return true if number is more than 0
+# Return false if number is less than or equal to 0
+# Return 'undefined' if it is invalid
+def positive_number(num)
+  return num > 0 ? true : false
+end
+
+# Reverse a given string
+def reverse(str)
+  return str.reverse
+end
+
+# Return true if sum of two numbers is more than 100
+def more_than_100(num1, num2)
+  num1 + num2 > 100 ? true : false
+end
+
+# Return the unique number in an array
+def unique_number(arr)
+  arr.find { |x| arr.count(x) == 1 }
+end
+
+# Return the length of nested array
+def get_length(arr)
+  arr.flatten.length
+end
+
+# Sum an array by the first (n) numbers
+def sum_numbers(arr, n)
+  arr[0...n].reduce(0, :+)
+end
+
+# String to binary, range from a-m will be 0, range from n-z will be 1
+def string_to_binary(str)
+  str.gsub(/[a-m]/i, '0').gsub(/[n-z]/i, '1')
+end
 
 # Find missing numbers in an array
 def find_the_missing_numbers(arr)
@@ -13,7 +69,7 @@ def compare_number_after_swap(num)
 end
 
 # Return index of the first vowel
-def get_index_of_the_first_vowel(str)
+def index_of_the_first_vowel(str)
   return str.index(/[aAeEiIoOuUyY]/)
 end
 
@@ -71,9 +127,6 @@ def rock_paper_scissors(player_1, player_2)
 	return 'Player 2 wins!'
 end
 
-
-# Stage Two
-
 # Get the final price after applying discount
 def price_after_discount(price, discount)
   price * (100 - discount) * 0.01
@@ -109,7 +162,7 @@ def filter_out_strings(arr)
   arr.grep(Integer)
 end
 
-# Get the next alphabet of every letter
+# Get the next alphabet of every letter of a word
 def the_next_alphabet(word)
   word.chars.map(&:next).join
 end
@@ -151,6 +204,7 @@ def sum_up_numbers(arr)
 end
 
 # Perform operation of 4 types, if divided by 0 then is undefined
+# Add, Subtract, Multiply, Divide
 def operation_of(a, b, op)
   a, b = a.to_i, b.to_i
   case op
@@ -164,8 +218,6 @@ def operation_of(a, b, op)
       b == 0 ? 'undefined' : (a / b)
   end
 end
-
-# Stage Three
 
 # Hashtag generator
 # Start with a hashtag
