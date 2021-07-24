@@ -48,6 +48,57 @@ def get_length(arr)
   arr.flatten.length
 end
 
+# keep only the elements that start with an a
+def select_elements_starting_with_c(arr)
+  arr.select do |word|
+    word.start_with?('c')
+  end
+end
+
+# Remove instances of nil (but NOT false) from an array
+def remove_nils_from_array(arr)
+  arr.compact
+end
+
+# Remove instances of nil AND false from an array
+def remove_nils_and_false_from_array(arr)
+  arr.compact.delete_if do |word|
+    word == false 
+  end
+end
+
+# Reverse every word in an array and return it
+def reverse_every_element_in_array(arr)
+  arr.map do |word|
+    word.reverse
+  end
+end
+
+# Return each possible pairing outcome in an array
+def every_possible_pairing_of_word(arr)
+  arr.combination(2)
+end
+
+# Turn an array of numbers into two arrays of numbers
+# First array in the array is all even numbers
+# Second array in the array is all odd numbers
+def separate_arr_into_even_and_odd_num(arr)
+  even = arr.select {|num| num.even?}
+  odd = arr.select {|num| num.odd?}
+  [even, odd]
+end
+
+# Sorting string by last alphabet/character
+def sort_by_last_char(str)
+  str.split.sort_by { |x| x[-1] }.join(' ')
+end
+
+# Serving drinks to people above age 18 and older, and when not on break time
+def serve_drink(age, onBreak)
+  return true if age >= 18 && !onBreak
+  return false
+end
+
 # Sum an array by the first (n) numbers
 def sum_numbers(arr, n)
   arr[0...n].reduce(0, :+)

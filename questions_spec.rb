@@ -59,6 +59,52 @@ RSpec.describe 'the test challenge' do
     expect(t).to eq 6
   end
 
+  specify 'select_elements_starting_with_c' do
+    t = select_elements_starting_with_c ['rambutan', 'code', 'academy', 'completed']
+    expect(t).to eq ['code', 'completed']
+  end
+
+  specify 'remove_nils_from_array' do
+    n = remove_nils_from_array [nil, 'abc', 'def', nil, false, 'ghi', nil]
+    expect(n).to eq ['abc', 'def', false, 'ghi']
+  end
+
+  specify 'remove_nils_and_false_from_array' do
+    n = remove_nils_and_false_from_array ['abc', 'def', nil, nil, false, 'ghi', nil]
+    expect(n).to eq ['abc', 'def', 'ghi']
+  end
+
+  specify 'reverse_every_element_in_array' do
+    n = reverse_every_element_in_array ['apple', 'orange', 'pineapple']
+    expect(n).to eq ["elppa", "egnaro", "elppaenip"]
+  end
+
+  specify 'every_possible_pairing_of_word' do
+    n = every_possible_pairing_of_word(['I', 'Me', 'You']) || []
+    sorted = n.map {|pair| pair.sort}.sort_by {|pair| [pair.first, pair.last] }
+
+    expect(sorted).to eq [['I', 'Me'], ['I', 'You'], ['Me', 'You']]
+  end
+
+  specify 'separate_arr_into_even_and_odd_num' do
+    n = separate_arr_into_even_and_odd_num [1, 2, 3, 4, 5, 6, 7]
+    expect(n).to eq [[2, 4, 6], [1, 3, 5, 7]]
+  end
+
+  specify 'sort_by_last_char' do
+    t = sort_by_last_char('firebomb multimedia accomplished scientific')
+    expect(t).to eq 'multimedia firebomb scientific accomplished'
+  end
+
+  specify 'serve_drink' do
+    t = serve_drink(17, false)
+    u = serve_drink(18, false)
+    v = serve_drink(22, true)
+    expect(t).to eq false
+    expect(u).to eq true
+    expect(v).to eq false
+  end
+
   specify 'sum_numbers' do
     t = sum_numbers([9, 4, 0, 8, 9], 2)
     expect(t).to eq 13
