@@ -25,7 +25,11 @@ end
 # Return false if number is less than or equal to 0
 # Return 'undefined' if it is invalid
 def positive_number(num)
-  return num > 0 ? true : false
+  if num.is_a? Integer
+    return num > 0 ? true : false
+  else
+    'undefined'
+  end
 end
 
 # Reverse a given string
@@ -33,7 +37,7 @@ def reverse(str)
   return str.reverse
 end
 
-# Return true if sum of two numbers is more than 100
+# Return true if sum of two numbers is more than 100, else false
 def more_than_100(num1, num2)
   num1 + num2 > 100 ? true : false
 end
@@ -94,6 +98,9 @@ def sort_by_last_char(str)
 end
 
 # Serving drinks to people above age 18 and older, and when not on break time
+# Return true if age is equal and above 18, when not on break time
+# Return false if age is equal and above 18, when on break time
+# Return false if age is below 18
 def serve_drink(age, onBreak)
   return true if age >= 18 && !onBreak
   return false
@@ -109,12 +116,14 @@ def string_to_binary(str)
   str.gsub(/[a-m]/i, '0').gsub(/[n-z]/i, '1')
 end
 
-# Find missing numbers in an array
+# Find missing numbers range from 1 to 10 in an array
 def find_the_missing_numbers(arr)
   ((1..10).to_a - arr)
 end
 
 # Swap two digits and see if it is larger than the one swapped
+# Return true if it is larger than the one swapped
+# Return false if it is smaller than the one swapped
 def compare_number_after_swap(num)
   num >= num.to_s.reverse.to_i
 end
@@ -124,13 +133,13 @@ def index_of_the_first_vowel(str)
   return str.index(/[aAeEiIoOuUyY]/)
 end
 
-# Return sum of two largest numbers
+# Return sum of two largest numbers in array
 def sum_of_two_largest_numbers(arr)
   nums = arr.sort.select { |n| n > 0 }.reverse
   nums[0] + nums[1]
 end
 
-# Return sum of two smallest numbers
+# Return sum of two smallest numbers in array
 def sum_of_two_smallest_numbers(arr)
   nums = arr.sort.select { |n| n > 0 }
   nums[0] + nums[1]

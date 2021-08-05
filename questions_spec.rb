@@ -5,22 +5,23 @@ RSpec.describe 'the test challenge' do
 
   specify 'next_number' do
     t = next_number(2)
+    u = next_number(4)
     expect(t).to eq 3
+    expect(u).to eq 5
   end
 
   specify 'minutes_into_seconds' do
     t = minutes_into_seconds(5)
+    u = minutes_into_seconds(8)
     expect(t).to eq 300
-  end
-
-  specify 'string_to_binary' do
-    t = string_to_binary('Rambutan')
-    expect(t).to eq '10001101'
+    expect(u).to eq 480
   end
 
   specify 'get_first_element' do
     t = get_first_element ['hello', 'how', 'are', 'you']
+    u = get_first_element ['greetings', 'where', 'are', 'you']
     expect(t).to eq 'hello'
+    expect(u).to eq 'greetings'
   end
 
   specify 'string_to_integer' do
@@ -33,13 +34,17 @@ RSpec.describe 'the test challenge' do
   specify 'positive_number' do
     t = positive_number(7)
     u = positive_number(-7)
+    v = positive_number('hello')
     expect(t).to eq true
     expect(u).to eq false
+    expect(v).to eq 'undefined'
   end
 
   specify 'reverse' do
-    t = reverse('You have completed the challenge.')
-    expect(t).to eq '.egnellahc eht detelpmoc evah uoY'
+    t = reverse('hello')
+    u = reverse('You have completed the challenge.')
+    expect(t).to eq 'olleh'
+    expect(u).to eq '.egnellahc eht detelpmoc evah uoY'
   end
 
   specify 'more_than_100' do
@@ -51,12 +56,16 @@ RSpec.describe 'the test challenge' do
 
   specify 'unique_number' do
     t = unique_number [9, 4, 1, 4, 9]
+    u = unique_number [2, 6, 0, 6, 0]
     expect(t).to eq 1
+    expect(u).to eq 2
   end
 
   specify 'get_length' do
     t = get_length [9, [4, 1, [4, 0, 8]]]
+    u = get_length [0, 4, [2, 5]]
     expect(t).to eq 6
+    expect(u).to eq 4
   end
 
   specify 'select_elements_starting_with_c' do
@@ -107,7 +116,14 @@ RSpec.describe 'the test challenge' do
 
   specify 'sum_numbers' do
     t = sum_numbers([9, 4, 0, 8, 9], 2)
+    u = sum_numbers([8, 5, 2, 3, 3], 4)
     expect(t).to eq 13
+    expect(u).to eq 18
+  end
+
+  specify 'string_to_binary' do
+    t = string_to_binary('Rambutan')
+    expect(t).to eq '10001101'
   end
 
   specify 'find_the_missing_numbers' do
@@ -124,7 +140,9 @@ RSpec.describe 'the test challenge' do
 
   specify 'index_of_the_first_vowel' do
     t = index_of_the_first_vowel 'Rambutan'
+    u = index_of_the_first_vowel 'Academy'
     expect(t).to eq 1
+    expect(u).to eq 0
   end
 
   specify 'sum_of_two_largest_numbers' do
